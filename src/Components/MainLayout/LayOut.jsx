@@ -11,7 +11,7 @@ import Travel from "../Travel/Travel";
 
 const LayOut = ()=>{
     return (
-        <div>
+        <div >
             <Travel/>
             <NewLife/>
             <Discover/>

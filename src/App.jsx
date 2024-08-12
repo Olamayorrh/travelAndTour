@@ -7,13 +7,16 @@ import Contact from "./Pages/Contact"
 import NotFound from "./Pages/NotFound"
 import Detail from "./Components/Detail/Detail"
 import BookNow from "./Components/Booking/Booking"
+import Admin from "./Components/Admin/Admin"
+import Register from "./Components/Admin/Register"
+import NewReview from "./Components/Reviews/NewReview"
 
 
 
 
 const App = ()=>{
   return (
-    <div >
+    <div className="w-full border-2 border-red-600 p-[10px]">
         <BrowserRouter>
                 <Navbar/>
                 <Routes>
@@ -23,7 +26,11 @@ const App = ()=>{
                       <Route path="/contact" element={<Contact/>}/> 
                       <Route path="/bookNow" element={<BookNow/>}/>
                       <Route path='/product/:productid' element={<Detail />} />
-                      <Route path="*" element={<NotFound/>}/> 
+                      <Route path="/admin" element={<Admin/>}></Route>
+                      <Route path="/register" element={<Register/>}></Route>
+                      <Route path="/newReview" element={<NewReview/>}></Route>
+                      <Route path="*" element={<NotFound/>}/>
+                      
                 </Routes>
         </BrowserRouter>
     </div>

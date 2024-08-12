@@ -25,3 +25,14 @@
 .slick-slide > div {
     margin: 0 10px;
 }
+
+#slider-boxes{
+    display: flex !important;
+}
+
+.slick-arrow:before{
+    background-color: rgb(7, 7, 246);
+   
+    font-size: 30px;
+    
+}

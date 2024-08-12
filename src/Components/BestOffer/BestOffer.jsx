@@ -248,22 +248,22 @@ const BestOffer = (props)=>{
 
    
     return(
-        <div >
-            <div className="flex w-full border-2 justify-between p-10">
-                <div className="border-2 w-full">
-                    <h1 className="font-bold text-[25px] pb-10">Best Offers</h1>
-                    <p>Looking for the best offers around? Look no further!<br></br> 
+        <div className="">
+            <div className="flex w-full justify-between md:p-10 p-5 gap-2">
+                <div className="w-full p-2 shadow">
+                    <h1 className="font-bold text-[25px] pb-10 ">Best Offers</h1>
+                    <p className="">Looking for the best offers around? Look no further!<br></br> 
                         Our company is dedicated to bringing you the most<br></br>
                         competitive deals in the market.
                     </p>
                 </div>
             
             
-                <div className="flex gap-2 border-2 w-full items-end">
+                <div className="flex justify-center md:gap-2 gap:1 items-end md:flex-row flex-col p-2">
                     {
                         buttonn.map((item)=>(
                             <div key={item.id} >
-                                <button className="flex justify-center items-center gap-1 w-[120px] p-2 border-2 rounded-full">{item.icon}{item.label}</button>
+                                <button className="flex md:flex-row flex-col justify-center items-center gap-2 md:w-[120px] p-2 border-2  rounded-xl md:rounded-full ">{item.icon}{item.label}</button>
                             </div>
                         ))
                     }
@@ -271,7 +271,7 @@ const BestOffer = (props)=>{
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 border-2 justify-items-center p-10 w-full gap-3 ">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 justify-items-center md:p-10 w-full md:gap-3 lg:gap-20 gap-2 p-3">
 
                     {
                         offer
@@ -286,7 +286,7 @@ const BestOffer = (props)=>{
                         })
 
                         .map((elem)=>(
-                            <div key={elem.id} className="w-[450px] h-[450px] bg-cover rounded-2xl " style={{backgroundImage: `url(${elem.image})`}}>
+                            <div key={elem.id} className="md:w-[320px] md:h-[320px] lg:w-[450] lg:h-[450] bg-cover rounded-2xl gap:3 " style={{backgroundImage: `url(${elem.image})`}}>
 
                             <div className="flex p-3 gap-3">
                                 <div className="rounded-full bg-white w-[100px] flex justify-center items-center p-2">{elem.cat}</div>
@@ -294,14 +294,14 @@ const BestOffer = (props)=>{
                             </div>
 
 
-                            <div className="flex justify-between pr-10 pl-3 mt-[310px]">
+                            <div className="flex justify-between pr-10 pl-3 mt-[310px] md:mt-[180px] md:gap-3 p-2">
                                 <div className="rounded-full w-[250px] p-3 flex bg-white justify-center gap-3">
                                     <p>{elem.rep}</p>
                                     <p>{elem.each}</p>
                                     <p>{elem.price}</p>
                                 </div>
 
-                                <div className="w-[50px] h-[50px] bg-blue-600 rounded-full flex justify-center items-center">
+                                <div className="w-[50px] h-[50px] md:w-[40px] md:h-[40px] bg-blue-600 rounded-full flex justify-center items-center">
                                     <Link to={`product/${elem.id}`}><button className="rounded-full" onClick={()=>getInfo(elem)}><MdOutlineArrowOutward /></button></Link>
                                 </div>
                             </div>

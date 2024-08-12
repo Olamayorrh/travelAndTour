@@ -31,22 +31,22 @@ const Discover = ()=>{
         }
     ]
     return(
-        <div className="w-full flex">
+        <div className="w-full md:flex md:flex-col">
 
-            <div className="w-full p-5 gap-2">
-                <div className="flex" >
-                    <div>
-                       <img src={image}></img> 
+            <div className=" p-5 gap-2 flex  flex-col w-full ">
+                <div className=" flex flex-col justify-center items-center " >
+                    <div className="">
+                       <img src={image} className=""></img> 
                     </div>
                     
-                    <div className=" p-2 ">
-                        <h2 className="font-poppins font-medium text-[40px]">Why Choose Us</h2>
-                        <p className="text-[18px] font-OpenSans py-12">Choosing us means excellence, reliability<br></br>
-                        and innovation. We pride ourselves on delivering<br></br>
+                    <div className=" p-2 flex flex-col justify-center items-center w-full ">
+                        <h2 className="font-poppins font-medium md:text-[40px] text-[25px]">Why Choose Us</h2>
+                        <p className="text-[18px] font-OpenSans py-12">Choosing us means excellence, reliability
+                        and innovation. We pride ourselves on delivering
                         exceptional quality and value to our clients.
                         </p>
                         
-                        <div className="py-12">
+                        <div className="md:py-12">
                            <Button2 word={"DISCOVER"} />
                         </div>
                        
@@ -54,12 +54,12 @@ const Discover = ()=>{
                     </div>
                 </div>
                
-                <div className="grid grid-cols-2 w-full gap-10 p-10 text-center">
+                <div className="grid grid-cols-2 w-full gap-20 p-10 justify-items-center ">
                     {
                         tour.map((item)=>(
-                            <div key={item.id} className="w-[320px] p-5 flex flex-col justify-center rounded-xl shadow-xl text-[20px]">
-                                <h1 className="font-bold text-[30px]">{item.title}</h1>
-                                <p>{item.body}</p>
+                            <div key={item.id} className="md:w-[320px] md:p-5 p-4 flex flex-col justify-center gap-3 rounded-xl shadow-xl md:text-[20px] min-w-[150px]">
+                                <h1 className="font-bold md:text-[30px] min-w-[25px]">{item.title}</h1>
+                                <p className="min-w-[80px]">{item.body}</p>
                             </div>
                         ))
                     }
@@ -67,23 +67,23 @@ const Discover = ()=>{
                 </div>
             </div>
 
-            <div className="p-10  flex flex-col gap-5">
-                <div className=" pb-5">
-                    <img src={lady} alt="island" className="border rounded-2xl"></img>
+            <div className="p-10 md:p-3 flex flex-col gap-5  justify-center items-center">
+                <div className="">
+                    <img src={lady} alt="island" className="rounded-2xl md-w[20px]"></img>
                 </div>
-                <div className="w-full flex flex-col gap-5">
-                    <div className="w-full  p-5 pb-5">
+                <div className="w-full flex flex-col gap-5 ">
+                    <div className="w-full  p-5 pb-5 flex justify-center items-center">
                         <p className="font-poppins text-[20px] font-medium">Our philosophy is simple: Our customer are <br></br>
                             the most important part of our bussiness.Here<br></br>
                             are some of our Services.
                         </p>
                     </div>
 
-                    <div className=" bg-white rounded-2xl flex justify-between gap-3 p-3 shadow-xl">
-                        <div className=" bg-blue-100 rounded-lg flex justify-center items-center w-full p-2">
+                    <div className=" bg-white rounded-2xl flex justify-between items-center gap-3 p-3 shadow-xl w-full ">
+                        <div className=" bg-blue-100 rounded-lg flex justify-center items-center  p-3 w-full">
                             <div className="flex flex-col p-3 ">
-                                <label htmlFor="destination" className="text-[22px]">Destination</label>
-                                <input className="placeholder:text-slate-700 cursor-pointer border-2 hover:border-white hover:rounded-full bg-blue-100 text-[20px] p-1" type="text" placeholder="Where you wanna go?" id="destination" name="destination" onChange={(e)=> handleInput(e)}></input>
+                                <label htmlFor="destination" className="md:text-[22px] text-[20px]">Destination</label>
+                                <input className="placeholder:text-slate-700 cursor-pointer border-2 border-blue-600 hover:border-white hover:rounded-full bg-blue-100 text-[18px] md:text-[20px] p-1 w-full" type="text" placeholder="Where you wanna go?" id="destination" name="destination" onChange={(e)=> handleInput(e)}></input>
                             </div>
                             <div className="p-2">
                                 <IoIosArrowDown size="30px"/>
@@ -91,8 +91,8 @@ const Discover = ()=>{
                             
                         </div>
 
-                        <div className="w-full border-2 flex justify-center bg-blue-500 text-white text-[25px] rounded-xl font-bold">
-                            <button>Search</button>
+                        <div className="md:min-w-[100px] hover:bg-red-600 flex justify-center items-center h-full bg-blue-500 text-white md:text-[15px] rounded-xl font-bold">
+                            <button className="p-2">Search</button>
                         </div>
                     </div>
                 </div>
