@@ -9,8 +9,14 @@ import img2 from "../../assets/images/img2.avif"
 import img3 from "../../assets/images/img3.avif"
 import img4 from "../../assets/images/img4.avif"
 import { Link } from "react-router-dom";
+import Aos from "aos";
+import "aos/dist/aos.css"
+import { useEffect } from "react";
 
 const NewLife = ()=>{
+    useEffect(()=>{
+        Aos.init({duration:1000})
+    },[])
 
     const images = [
         {id:1,
@@ -33,12 +39,12 @@ const NewLife = ()=>{
         }
     ]
     return(
-        <div className=" flex flex-wrap md:flex-wrap justify-center items-center bg-cover p-3 lg:flex">
+        <div className=" flex  justify-center items-stretch bg-cover p-3">
             <div className="">
-                <img src={cam} alt="wanderlady" className="w-full h-full md:w-[650px] bg-cover"></img>
+                <img src={cam} alt="wanderlady" className="w-full h-full bg-cover" data-aos="fade-down"></img>
             </div>
 
-            <div className=" w-full">
+            <div className=" w-full" data-aos="fade-right">
 
                 <div className="flex md:p-1 justify-center items-center">
                     <img src={plane} alt="airoplane" className="md:w-40 w-20"></img>
@@ -68,7 +74,7 @@ const NewLife = ()=>{
                                 </div>
                             ))
                         }
-                        <p className="rounded-full md:w-[60px] md:h-[60px] w-[30px] h-[30px] border-slate-500 flex justify-center items-center font-bold text-[12px] p-3">5k+</p>
+                        <p className="rounded-full border md:w-[60px] md:h-[60px] w-[30px] h-[30px] border-slate-500 flex justify-center items-center font-bold text-[12px] p-3">5k+</p>
                     </div>
                 </div>
                 

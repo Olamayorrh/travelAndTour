@@ -6,11 +6,12 @@ import img1 from '../../assets/images/paris.jpeg';
 import img2 from '../../assets/images/maldiv4.jpeg';
 import img3 from '../../assets/images/dubai1.jpeg';
 import img4 from '../../assets/images/egypt1.jpeg';
-
+import Aos from "aos";
+import "aos/dist/aos.css"
 
 import FlightDetail from "../FlightDetails/FlightDetail";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Datacontext } from "../ContextComponent/Context";
 
 
@@ -217,6 +218,10 @@ console.log(FlightDetail);
 
 const BestOffer = (props)=>{
 
+    useEffect(()=>{
+        Aos.init({duration:3000})
+    },[])
+
     const {offer, getInfo,searchTerm} = useContext(Datacontext)
 
    const buttonn =[
@@ -248,7 +253,7 @@ const BestOffer = (props)=>{
 
    
     return(
-        <div className="">
+        <div className=""data-aos="fade-right">
             <div className="flex w-full justify-between md:p-10 p-5 gap-2">
                 <div className="w-full p-2 shadow">
                     <h1 className="font-bold text-[25px] pb-10 ">Best Offers</h1>
@@ -259,7 +264,7 @@ const BestOffer = (props)=>{
                 </div>
             
             
-                <div className="flex justify-center md:gap-2 gap:1 items-end md:flex-row flex-col p-2">
+                <div className="flex justify-center md:gap-2 gap:1 items-end md:flex-row flex-col p-2 w-full" data-aos="fade-down">
                     {
                         buttonn.map((item)=>(
                             <div key={item.id} >
@@ -271,7 +276,7 @@ const BestOffer = (props)=>{
                 </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-cols-1 justify-items-center md:p-10 w-full md:gap-3 lg:gap-20 gap-2 p-3">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3  xl:grid-cols-4 items-center grid-cols-1 justify-items-center md:p-10 w-full md:gap-3 lg:gap-20 gap-2 p-3">
 
                     {
                         offer

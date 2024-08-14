@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { offer } from "../BestOffer/BestOffer";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import BookNow from "../Booking/Booking";
 // import { review } from "../Reviews/Reviews";
 import Reviews from "../Reviews/Reviews";
@@ -14,6 +14,12 @@ import { FaStar } from "react-icons/fa";
 
 
 const Context = ({children})=>{
+
+    const navigate = useNavigate();
+    // const location = useLocation();
+
+    // console.log(location.state.previousUrl);
+    
 
     const [info, setInfo] = useState([{}])
 
@@ -34,6 +40,7 @@ const Context = ({children})=>{
 
     const closeForm = ()=>{
         setOpenForm(false);
+        navigate(location.state.previousUrl)
 
     }
 
@@ -83,20 +90,17 @@ const Context = ({children})=>{
                 return  [...prevData, addUser]
             })
 
-            successBooking()
+            successBooking();
+            navigate("/")
         }else
         
         {
             
                 alert("Kindly fill all spaces")
+                navigate("/bookNow")
             
         }
     
-        //console.log(userInfo);
-
-        //console.log(addUser);
-
-     
       }
      
   
@@ -110,19 +114,7 @@ const Context = ({children})=>{
 
     
 
-    // useEffect(()=>{
-    //     setHome(true);
-        
-    //    {
-    //     home && <Navigate to="/" />
-    //    }
-
-    //    setHome(false)
-    // },[userInfo])
-    
-
-    // console.log(getStorageState);
-
+   
 
     // admin registeration
     
@@ -167,10 +159,6 @@ const Context = ({children})=>{
             
         }
     
-        
-
-       // console.log(addAdmin);
-
      
       }
      
@@ -212,37 +200,60 @@ const Context = ({children})=>{
           
         }
 
-       
-            
              setRevieew((prevData)=>{
                 return  [...prevData, addReview]
             });
 
-
         
-    
-        
-
-        console.log(addReview);
        
       }
-
-
-      console.log(saveReview);
+       
       
       useEffect(()=>{
         localStorage.setItem('reviews', JSON.stringify(revieew))
  
     },[revieew]);
 
+    //states for admin login
+
+    const [userDetails, setUserDetails] = useState({});
+
+
+    // function handling the input for admin login
+    const targetInput =(e)=>{
+  
+      let name = e.target.name;
+      let value = e.target.value
+      
+      setUserDetails((user)=>({
+          ...user,[name]:value
+  
+      }));  
+  
+  
+    };
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(userDetails);
+
+       
+            if(storeAdmin[0].password == userDetails.password  && storeAdmin[0].name == userDetails.name){
+                alert("login successful")
+                navigate("/admin")
+            }else{
+                alert("name or password incorrect")
+            }
+       
+
+    };
+
     
-
-
 
     return(
         
         <Datacontext.Provider value={{offer,handleInput, info, getInfo,openForm,closeForm,searchTerm,getStorageState,handleForm,setName,setEmail,setDeparture,setDate,setDestination,
-        home,setHome,handleAdminForm, setEname, setEemail,setEpassword, setLname,setProf,setBodyy,handleReview,saveReview}}>
+        home,setHome,handleAdminForm, setEname, setEemail,setEpassword, setLname,setProf,setBodyy,handleReview,saveReview,targetInput, handleSubmit, storeAdmin,userDetails,userInfo,setUserInfo}}>
             {children}
         </Datacontext.Provider>
     )

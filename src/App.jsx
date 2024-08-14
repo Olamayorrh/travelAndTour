@@ -10,14 +10,15 @@ import BookNow from "./Components/Booking/Booking"
 import Admin from "./Components/Admin/Admin"
 import Register from "./Components/Admin/Register"
 import NewReview from "./Components/Reviews/NewReview"
+import Login from "./Components/Admin/Login"
 
 
 
 
 const App = ()=>{
   return (
-    <div className="w-full border-2 border-red-600 p-[10px]">
-        <BrowserRouter>
+    <div className="w-full p-[10px]">
+      
                 <Navbar/>
                 <Routes>
                       <Route path="/" element={<LayOut/>}/> 
@@ -27,12 +28,13 @@ const App = ()=>{
                       <Route path="/bookNow" element={<BookNow/>}/>
                       <Route path='/product/:productid' element={<Detail />} />
                       <Route path="/admin" element={<Admin/>}></Route>
-                      <Route path="/register" element={<Register/>}></Route>
+                      <Route path="/admin/register" element={<Register/>}></Route>
                       <Route path="/newReview" element={<NewReview/>}></Route>
+                      <Route path="/admin/login" element={<Login/>}></Route>
                       <Route path="*" element={<NotFound/>}/>
                       
                 </Routes>
-        </BrowserRouter>
+        
     </div>
   )
 }

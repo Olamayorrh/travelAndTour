@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Navbar = ()=>{
     return (
         <>
-            <div className="flex justify-around  md:p-6 w-full  p-3 gap-1">
+            <div className="flex justify-around  md:p-6 w-full  p-3 gap-1 bg-white">
                 <div className="md:items-center flex items-center text-[12px]">
                     <Link to="/"><FaGlobe color="blue" size={40}/></Link> 
                     <Link to="/">Wanderlust</Link>
